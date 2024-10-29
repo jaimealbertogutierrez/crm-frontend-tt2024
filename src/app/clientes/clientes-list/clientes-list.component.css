@@ -1,0 +1,33 @@
+/* Estilo personalizado para el encabezado h1 */
+.custom-h1 {
+  font-size: 30px;
+  text-align: center; /* Opcional: alinea el texto al centro */
+  font-weight: bold;
+}
+
+.btn-consultar {
+  background-color: #007bff; /* Color azul */
+  color: white; /* Texto blanco */
+}
+
+.btn-modificar {
+  background-color: #28a745; /* Color verde */
+  color: white; /* Texto blanco */
+}
+
+.btn-eliminar {
+  background-color: #dc3545; /* Color rojo */
+  color: white; /* Texto blanco */
+}
+
+.btn-crear {
+  background-color: #17a2b8; /* Color cyan */
+  color: white; /* Texto blanco */
+}
+
+.btn-consultar:hover,
+.btn-modificar:hover,
+.btn-eliminar:hover,
+.btn-crear:hover {
+  opacity: 0.8; /* Efecto al pasar el ratón */
+}

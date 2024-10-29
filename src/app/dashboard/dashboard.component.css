@@ -1,0 +1,40 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  z-index: 1000; /* Asegura que el modal esté por encima de otros elementos */
+}
+
+.modal-content {
+  background-color: #fff; /* Fondo blanco para el cuadro de diálogo */
+  padding: 20px; /* Espaciado interno */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra */
+  width: 400px; /* Ancho fijo, puedes ajustarlo */
+  max-width: 90%; /* No se extiende más del 90% del ancho del viewport */
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between; /* Espaciado entre botones */
+  margin-top: 20px; /* Espaciado superior para los botones */
+}
+
+button {
+  background-color: #007bff; /* Color del botón */
+  color: white; /* Texto blanco */
+  border: none; /* Sin borde */
+  padding: 10px 20px; /* Espaciado interno del botón */
+  border-radius: 4px; /* Bordes redondeados del botón */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+
+button:hover {
+  background-color: #0056b3; /* Color de fondo al pasar el mouse */
+}

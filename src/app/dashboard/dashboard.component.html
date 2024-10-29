@@ -1,0 +1,72 @@
+<nav id="header" class="fixed w-full z-30 top-0 text-white">
+  <hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
+</nav>
+
+<div class="pt-24">
+  <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
+    <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
+      <p class="leading-normal text-2xl mb-8">
+        Panel de Administración de Recursos de CRM
+      </p>
+    </div>
+    <div class="w-full md:w-3/5 py-6 text-center">
+      <img id="imagen" alt="CRM" title="CRM" src="https://snov.io/blog/wp-content/uploads/2021/02/2jT2rNPfndRmSJ9SOdn9VFEchk8AEKpSGvPPM1Xu-1-1-1536x768.png" width="50%" height="50%"/>
+    </div>
+  </div>
+</div>
+
+<div class="container mx-auto mt-8">
+  <h1>Bienvenido, {{ nombre }}</h1>
+  <p>Tu correo es: {{ correo }}</p>
+
+  <!-- Botón para cerrar sesión -->
+  <button (click)="confirmLogout()">Cerrar sesión</button>
+
+  <!-- Aquí está el modal -->
+  <div class="modal-overlay" *ngIf="showModal">
+    <div class="modal-content">
+      <h2>Confirmar Cierre de Sesión</h2>
+      <p>¿Deseas cerrar sesión de forma definitiva?</p>
+      <div class="modal-actions">
+        <button (click)="logout()">Aceptar</button>
+        <button (click)="cancel()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <table class="w-full">
+    <tr>
+      <td>
+        <a [routerLink]="['/clientes']" class="cursor-pointer">
+          <img src="assets/images/iconoClientes.png" title="Clientes" width="50%" height="50%">
+        </a>
+        <p>
+          <b>Clientes:</b> El módulo de Clientes en un CRM permite gestionar toda la información relacionada con los clientes de la empresa.
+        </p>
+      </td>
+      <td>
+        <a [routerLink]="['/interacciones']" class="cursor-pointer">
+          <img src="assets/images/iconoInteracciones.png" title="Interacciones" width="50%" height="50%">
+        </a>
+        <b>Interacciones:</b> El módulo de Interacciones registra todas las comunicaciones y encuentros entre la empresa y sus clientes o prospectos.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a [routerLink]="['/oportunidades']" class="cursor-pointer">
+          <img src="assets/images/iconoOportunidades.png" title="Oportunidades" width="50%" height="50%">
+        </a>
+        <b>Oportunidades:</b> El registro de Oportunidades se utiliza para rastrear y gestionar posibles ventas o negocios en desarrollo.
+      </td>
+      <td>
+        <img src="assets/images/iconoPagos.png" title="Pagos" width="50%" height="50%">
+        <!--
+        <a [routerLink]="['/pagos']" class="cursor-pointer">
+          <img src="assets/images/iconoPagos.png" title="Pagos" width="50%" height="50%">
+        </a>
+        -->
+        <b>Pagos:</b> El registro de Pagos es fundamental para llevar un control claro de todas las transacciones financieras realizadas por los clientes.
+      </td>
+    </tr>
+  </table>
+</div>

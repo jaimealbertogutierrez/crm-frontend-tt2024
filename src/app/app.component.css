@@ -1,0 +1,13 @@
+/* Efecto para los enlaces */
+.menu-link {
+  color: black; /* Color inicial */
+  transition: all 0.3s ease; /* Transición suave */
+  padding: 5px 10px; /* Espaciado alrededor del texto */
+  border-radius: 4px; /* Bordes redondeados */
+}
+
+.menu-link:hover {
+  color: #007bff; /* Cambia el color del texto al pasar el mouse */
+  background-color: white; /* Color de fondo al pasar el mouse */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para resaltar */
+}

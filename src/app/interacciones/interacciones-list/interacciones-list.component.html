@@ -1,0 +1,62 @@
+<div class="container mt-4 text-center">
+  <h1 class="custom-h1"><b>REGISTROS DE INTERACCIONES</b></h1>
+  <br/>
+  <table id="tableInteracciones" class="table table-bordered table-custom">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>ID del Cliente</th>
+      <th>Fecha de Interacción</th>
+      <th>Tipo de Interacción</th>
+      <th>Notas</th>
+      <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let interaccion of interacciones">
+      <td>{{ interaccion.interaccion_id }}</td>
+      <td>{{ interaccion.cliente_id }}</td>
+      <td>{{ interaccion.fecha_interaccion | date }}</td>
+      <td>{{ interaccion.tipo_interaccion }}</td>
+      <td>{{ interaccion.notas }}</td>
+      <td>
+        <button class="btn btn-consultar btn-sm" (click)="viewInteraccion(interaccion.interaccion_id)">Ver</button>
+        <button class="btn btn-modificar btn-sm" (click)="editInteraccion(interaccion.interaccion_id)">Editar</button>
+        <button class="btn btn-eliminar btn-sm" (click)="confirmDelete(interaccion.interaccion_id)">Eliminar</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <br />
+  <button class="btn btn-crear mb-3" (click)="navigateToCreate()">Crear Nueva Interacción</button>
+
+  <div *ngIf="loading" class="text-center" [ngClass]="{'hidden': !loading}">
+    <p>Cargando datos...</p>
+  </div>
+
+  <div *ngIf="error" class="alert alert-danger" [ngClass]="{'hidden': !error}">
+    <p>{{ error }}</p>
+  </div>
+
+  <!-- Modal de confirmación de eliminación -->
+  <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmDeleteModalLabel">Confirmar Eliminación</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ¿Estás seguro de que deseas eliminar esta interacción?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cancelEliminar()">Cancelar</button>
+          <button type="button" class="btn btn-danger" (click)="deleteInteraccion()">Sí, Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

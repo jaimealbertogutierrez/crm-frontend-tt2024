@@ -1,0 +1,34 @@
+<div class="container mt-4">
+  <h2>Editar Interacción</h2>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="cliente_id">ID del Cliente:</label>
+      <input type="number" id="cliente_id" formControlName="cliente_id" required class="form-control"/>
+    </div>
+    <div class="form-group">
+      <label for="fecha_interaccion">Fecha de Interacción:</label>
+      <input type="date" id="fecha_interaccion" formControlName="fecha_interaccion" required class="form-control"/>
+    </div>
+    <div class="form-group">
+      <label for="tipo_interaccion">Tipo de Interacción:</label>
+      <select id="tipo_interaccion" formControlName="tipo_interaccion" required class="form-control">
+        <option value="">Seleccione...</option>
+        <option value="llamada">Llamada</option>
+        <option value="correo electrónico">Correo Electrónico</option>
+        <option value="reunión">Reunión</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="notas">Notas:</label>
+      <textarea id="notas" formControlName="notas" required class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="documento_adjuntos">Documentos Adjuntos:</label>
+      <input type="text" id="documento_adjuntos" formControlName="documento_adjuntos" class="form-control"/>
+    </div>
+    <button type="submit" class="btn btn-primary">Actualizar Interacción</button>
+    <button type="reset" class="btn btn-primary">Limpiar Formulario</button>
+    <br/><br/>
+    <label *ngIf="message" class="message-label">{{ message }}</label>
+  </form>
+</div>

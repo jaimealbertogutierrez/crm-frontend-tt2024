@@ -1,0 +1,34 @@
+<div class="container mt-4">
+  <h2>Editar Oportunidad</h2>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="cliente_id">Seleccione el Cliente:</label>
+      <select id="cliente_id" formControlName="cliente_id" required class="form-control">
+        <option value="" disabled selected>Seleccione un cliente</option>
+        <option *ngFor="let cliente of clientes" [value]="cliente.cliente_id">
+          {{ cliente.nombre }} (ID: {{ cliente.cliente_id }})
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="descripcion">Descripción de la Oportunidad:</label>
+      <textarea id="descripcion" formControlName="descripcion" required class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="estado">Estado:</label>
+      <select id="estado" formControlName="estado" required class="form-control">
+        <option value="en progreso">En progreso</option>
+        <option value="cerrada">Cerrada</option>
+        <option value="perdida">Perdida</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="fecha_creacion">Fecha de Creación:</label>
+      <input type="date" id="fecha_creacion" formControlName="fecha_creacion" required class="form-control"/>
+    </div>
+    <button type="submit" class="btn btn-primary">Actualizar Oportunidad</button>
+    <button type="reset" class="btn btn-secondary">Limpiar Formulario</button>
+    <br /><br />
+    <label *ngIf="message" class="message-label">{{ message }}</label>
+  </form>
+</div>

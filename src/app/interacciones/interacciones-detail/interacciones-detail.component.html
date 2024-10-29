@@ -1,0 +1,13 @@
+<div class="container mt-4">
+  <h2>Detalles de la Interacción</h2>
+  <div *ngIf="entity">
+    <p><strong>ID:</strong> {{ entity.interaccion_id }}</p>
+    <p><strong>ID del Cliente:</strong> {{ entity.cliente_id }}</p>
+    <p><strong>Fecha de Interacción:</strong> {{ entity.fecha_interaccion | date }}</p>
+    <p><strong>Tipo de Interacción:</strong> {{ entity.tipo_interaccion }}</p>
+    <p><strong>Notas:</strong> {{ entity.notas }}</p>
+    <p><strong>Documentos Adjuntos:</strong> {{ entity.documento_adjuntos }}</p>
+  </div>
+  <br/>
+  <button class="btn btn-primary mt-3" (click)="navigateBack()">Regresar a la lista de interacciones</button>
+</div>

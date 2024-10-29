@@ -1,0 +1,67 @@
+<div class="container mt-4">
+
+  <h1 class="custom-h1"><b>REGISTROS DE OPORTUNIDADES</b></h1>
+  <br/>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Cliente ID</th>
+      <th>Descripción</th>
+      <th>Estado</th>
+      <th>Fecha de Creación</th>
+      <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let oportunidad of oportunidades">
+      <td>{{ oportunidad.oportunidad_id }}</td>
+      <td>{{ oportunidad.cliente_id }}</td>
+      <td>{{ oportunidad.descripcion }}</td>
+      <td>{{ oportunidad.estado }}</td>
+      <td>{{ oportunidad.fecha_creacion | date:'shortDate' }}</td>
+      <td>
+        <button (click)="viewOportunidad(oportunidad.oportunidad_id)" class="btn btn-info btn-sm">Ver</button>
+        <button (click)="editOportunidad(oportunidad.oportunidad_id)" class="btn btn-warning btn-sm">Editar</button>
+        <button (click)="confirmDelete(oportunidad.oportunidad_id)" class="btn btn-danger btn-sm">Eliminar</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <br/>
+  <div class="custom-h1">
+    <button class="btn btn-crear mb-3" (click)="navigateToCreate()">Crear Nueva Oportunidad</button>
+  </div>
+
+  <div *ngIf="loading" class="text-center" [ngClass]="{'hidden': !loading}">
+    <p>Cargando datos...</p>
+  </div>
+
+  <div *ngIf="error" class="alert alert-danger" [ngClass]="{'hidden': !error}">
+    <p>{{ error }}</p>
+  </div>
+
+  <!-- Modal de confirmación de eliminación -->
+  <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmDeleteModalLabel">Confirmar Eliminación</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ¿Estás seguro de que deseas eliminar esta oportunidad?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cancelEliminar()">Cancelar</button>
+          <button type="button" class="btn btn-danger" (click)="deleteOportunidad()">Sí, Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

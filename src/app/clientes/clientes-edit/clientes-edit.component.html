@@ -1,0 +1,26 @@
+<div class="container mt-4">
+  <h2>Modificar Clientes</h2>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" formControlName="nombre" required class="form-control"/>
+    </div>
+    <div class="form-group">
+      <label for="direccion">Dirección:</label>
+      <input type="text" id="direccion" formControlName="direccion" class="form-control"/>
+    </div>
+    <div class="form-group">
+      <label for="correoElectronico">Correo Electrónico:</label>
+      <input type="email" id="correoElectronico" formControlName="correo_electronico" required class="form-control"/>
+    </div>
+    <div class="form-group">
+      <label for="telefono">Teléfono:</label>
+      <input type="text" id="telefono" formControlName="telefono" class="form-control"/>
+    </div>
+    <button type="submit" class="btn btn-primary">Modificar Clientes</button>
+    <button type="reset" class="btn btn-primary">Limpiar Formulario</button>
+    <br/>
+    <br/>
+    <label *ngIf="message" class="message-label">{{ message }}</label>
+  </form>
+</div>
